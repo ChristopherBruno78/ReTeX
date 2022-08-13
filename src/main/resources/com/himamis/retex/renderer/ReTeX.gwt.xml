@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module rename-to="jlatexmath">
+<module rename-to="retex">
     <inherits name="com.google.gwt.xml.XML"/>
     <inherits name="com.google.gwt.resources.Resources"/>
     <inherits name="com.google.gwt.logging.Logging"/>
     <inherits name="com.himamis.retex.renderer.JLaTeXMath"/>
     <source path="web"/>
-    <public path="web/jlatexmath/public"/>
+    <public path="web/retex/public"/>
 </module>
