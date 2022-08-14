@@ -58,11 +58,13 @@ public class JlmLib {
   public JsPropertyMap<Object> drawLatex(
       final CanvasRenderingContext2D ctx,
       final TeXFormula formula,
+      final int x,
+      final int y,
       final double size,
       final String fgColorString,
       final String bgColorString) {
     TeXIcon icon = createIcon(formula, size, 0, new Insets(0, 0, 0, 0));
-    return draw(icon, ctx, 0, 0, fgColorString, bgColorString, null);
+    return draw(icon, ctx, x, y, fgColorString, bgColorString, null);
   }
 
   public JsPropertyMap<Object> drawLatex(
