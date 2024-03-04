@@ -46,6 +46,13 @@
 package com.himamis.retex.renderer.share.fonts;
 
 import com.himamis.retex.renderer.share.FontInfo;
+import com.himamis.retex.renderer.share.platform.font.Font;
+import com.himamis.retex.renderer.web.font.opentype.Opentype;
+import com.himamis.retex.renderer.web.font.opentype.OpentypeFontStatusListener;
+import com.himamis.retex.renderer.web.font.opentype.OpentypeFontWrapper;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public final class TeXFonts {
 
@@ -153,5 +160,34 @@ public final class TeXFonts {
     wnssi10.setDependencies(wnssbx10, wnti10, null, wntt10, null);
     wnti10.setDependencies(wnbxti10, wnr10, wnssi10, wntt10, null);
     wntt10.setDependencies(null, wnr10, wnss10, null, null);
+  }
+
+  public interface FontsLoadedCallback {
+    void onFontsLoaded();
+  }
+
+  private static int count = 0;
+  private static final Set<Font> essentialFonts = new HashSet<>();
+
+  public static void prefetch(FontsLoadedCallback callback) {
+
+    Opentype.INSTANCE.addListener(new OpentypeFontStatusListener() {
+      @Override
+      public void onFontLoaded(OpentypeFontWrapper font, String familyName) {
+        count++;
+        if(count == essentialFonts.size()) {
+          Opentype.INSTANCE.removeListener(this);
+          callback.onFontsLoaded();
+        }
+      }
+      @Override
+      public void onFontError(Object error, String familyName) {
+
+      }
+    });
+
+    TeXFonts teXFonts = new TeXFonts();
+    essentialFonts.add(teXFonts.cmr10.getFont());
+    essentialFonts.add(teXFonts.cmmi10.getFont());
   }
 }
