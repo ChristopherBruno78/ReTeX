@@ -5,5 +5,5 @@
     <inherits name="com.google.gwt.logging.Logging"/>
     <inherits name="com.himamis.retex.renderer.JLaTeXMath"/>
     <source path="client"/>
-    <public path="web/jlatexmath/public"/>
+    <public path="client/jlatexmath/public"/>
 </module>

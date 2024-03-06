@@ -45,12 +45,12 @@ public interface PreloadFontResources extends ClientBundle {
 
   PreloadFontResources INSTANCE = GWT.create(PreloadFontResources.class);
 
-  @Source("com/himamis/retex/renderer/web/jlatexmath/resources/font/jlm_cmss10.js")
+  @Source("com/himamis/retex/renderer/client/jlatexmath/resources/font/jlm_cmss10.js")
   TextResource jlm_cmss10();
 
-  @Source("com/himamis/retex/renderer/web/jlatexmath/resources/font/jlm_cmsy10.js")
+  @Source("com/himamis/retex/renderer/client/jlatexmath/resources/font/jlm_cmsy10.js")
   TextResource jlm_cmsy10();
 
-  @Source("com/himamis/retex/renderer/web/jlatexmath/resources/font/jlm_cmex10.js")
+  @Source("com/himamis/retex/renderer/client/jlatexmath/resources/font/jlm_cmex10.js")
   TextResource jlm_cmex10();
 }

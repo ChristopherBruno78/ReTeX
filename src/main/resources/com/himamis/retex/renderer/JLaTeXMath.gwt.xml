@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
     <source path="shared"/>
+    <source path="client"/>
     <super-source path="gwt-patch"/>
     <inherits name="com.google.gwt.core.Core"/>
     <inherits name="com.himamis.gwtutil.gwtutil"/>

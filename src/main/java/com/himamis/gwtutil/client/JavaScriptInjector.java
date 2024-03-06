@@ -1,4 +1,4 @@
-package com.himamis.gwtutil.web;
+package com.himamis.gwtutil.client;
 
 import com.google.gwt.resources.client.TextResource;
 import elemental2.dom.DomGlobal;

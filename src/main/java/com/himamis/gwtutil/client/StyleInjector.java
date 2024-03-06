@@ -1,4 +1,4 @@
-package com.himamis.gwtutil.web;
+package com.himamis.gwtutil.client;
 
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLLinkElement;

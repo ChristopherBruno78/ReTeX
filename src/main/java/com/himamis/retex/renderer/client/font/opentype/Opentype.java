@@ -36,7 +36,7 @@ package com.himamis.retex.renderer.client.font.opentype;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.TextResource;
-import com.himamis.gwtutil.web.JavaScriptInjector;
+import com.himamis.gwtutil.client.JavaScriptInjector;
 import com.himamis.retex.renderer.client.font.FontLoaderWrapper;
 import com.himamis.retex.renderer.client.font.FontW;
 import com.himamis.retex.renderer.client.resources.PreloadFontResources;
