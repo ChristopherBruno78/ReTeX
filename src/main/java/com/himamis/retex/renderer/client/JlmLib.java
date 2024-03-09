@@ -45,7 +45,6 @@ import com.himamis.retex.renderer.shared.platform.graphics.Color;
 import com.himamis.retex.renderer.shared.platform.graphics.Insets;
 import elemental2.dom.CanvasRenderingContext2D;
 import elemental2.dom.DomGlobal;
-import jsinterop.base.JsPropertyMap;
 
 public class JlmLib {
 
@@ -55,7 +54,7 @@ public class JlmLib {
     }
   }
 
-  public JsPropertyMap<Object> drawLatex(
+  public JlmReturnValue drawLatex(
       final CanvasRenderingContext2D ctx,
       final TeXFormula formula,
       final int x,
@@ -67,7 +66,7 @@ public class JlmLib {
     return draw(icon, ctx, x, y, fgColorString, bgColorString, null);
   }
 
-  public JsPropertyMap<Object> drawLatex(
+  public JlmReturnValue drawLatex(
       final CanvasRenderingContext2D ctx,
       final TeXFormula formula,
       final double size,
@@ -88,7 +87,7 @@ public class JlmLib {
     return draw(icon, ctx, x, y, fgColorString, bgColorString, callback);
   }
 
-  public JsPropertyMap<Object> drawLatex(
+  public JlmReturnValue drawLatex(
       CanvasRenderingContext2D ctx,
       TeXFormula formula,
       String fgColorString,
@@ -111,7 +110,7 @@ public class JlmLib {
     return DomGlobal.window.devicePixelRatio;
   }
 
-  public static JsPropertyMap<Object> draw(
+  public static JlmReturnValue draw(
       TeXIcon icon,
       CanvasRenderingContext2D ctx,
       final int x,
@@ -127,7 +126,7 @@ public class JlmLib {
     return color == null ? null : Colors.decode(color);
   }
 
-  public static JsPropertyMap<Object> draw(
+  public static JlmReturnValue draw(
       TeXIcon icon,
       CanvasRenderingContext2D ctx,
       final double x,
@@ -152,7 +151,6 @@ public class JlmLib {
     g2.setDrawingFinishedCallback(callback);
 
     // paint the icon
-
     icon.paintIcon(() -> fgColor, g2, x, y);
     g2.maybeNotifyDrawingFinishedCallback(false);
 
@@ -172,13 +170,14 @@ public class JlmLib {
     return icon;
   }
 
-  private static JsPropertyMap<Object> createReturnValue(TeXIcon icon, double ratio) {
-    JsPropertyMap<Object> object = JsPropertyMap.of();
-    object.set("width", icon.getIconWidth());
-    object.set("height", icon.getIconHeight());
-    object.set("baseline", icon.getBaseLine());
-    object.set("pixelRatio", ratio);
-    return object;
+  private static JlmReturnValue createReturnValue(TeXIcon icon, double ratio) {
+
+    JlmReturnValue returnValue = new JlmReturnValue();
+    returnValue.width = icon.getIconWidth();
+    returnValue.height = icon.getIconHeight();
+    returnValue.baseline = icon.getBaseLine();
+    returnValue.pixelRatio = ratio;
+    return returnValue;
   }
 
   /**
